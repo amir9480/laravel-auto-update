@@ -1,0 +1,52 @@
+{
+    "name": "amir9480/laravel-auto-update",
+    "description": "Laravel package to update app automatically.",
+    "keywords": [
+        "amir9480",
+        "laravel-auto-update"
+    ],
+    "homepage": "https://github.com/amir9480/laravel-auto-update",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "amir alizadeh",
+            "email": "amiralizadeh9480@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelAutoUpdate\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaravelAutoUpdate\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelAutoUpdate\\LaravelAutoUpdateServiceProvider"
+            ],
+            "aliases": {
+                "LaravelAutoUpdate": "LaravelAutoUpdate\\LaravelAutoUpdateFacade"
+            }
+        }
+    }
+}
