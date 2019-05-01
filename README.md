@@ -4,8 +4,8 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/amir9480/laravel-auto-update.svg?style=flat-square)](https://packagist.org/packages/amir9480/laravel-auto-update)
 
 This package help you make update functionality easily.
-![laravel auto update](/images/screenshot1.jpg)
-![laravel auto update](/images/screenshot2.jpg)
+![laravel auto update](./images/screenshot1.jpg)
+![laravel auto update](./images/screenshot2.jpg)
 
 ## Installation
 
@@ -61,7 +61,7 @@ Recommended Directories/files to add to zip file.
 Do not forget add JQuery before updater script.
 
 ### Step8: Open your project in browser :
-![laravel auto update](/images/screenshot1.jpg)
+![laravel auto update](./images/screenshot1.jpg)
 
 ## Configuration
 ### middlewares:
