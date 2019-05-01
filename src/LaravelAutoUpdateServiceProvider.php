@@ -24,6 +24,9 @@ class LaravelAutoUpdateServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-auto-update'),
             ], 'views');
+            $this->publishes([
+                __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-auto-update'),
+            ], 'translations');
 
             $this->commands([
                 CheckCommand::class,

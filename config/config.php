@@ -6,6 +6,7 @@ return [
      * Route middlewares.
      */
     'middlewares' => [
+        // Recommended to use admin only access middleware
     ],
 
     /**
@@ -17,8 +18,7 @@ return [
      * Before update commands.
      */
     'before_update_commands' => [
-        'artisan view:clear',
-        'php -v'
+        // Recommended to execute backup command
     ],
 
     /**
@@ -26,7 +26,12 @@ return [
      */
     'after_update_commands' => [
         'artisan migrate --force',
-        'php -v'
+        'artisan view:clear',
+        'artisan cache:clear',
+        'artisan config:clear',
+        'artisan route:clear',
+        // 'artisan config:cache',
+        // 'artisan route:cache',
     ],
 
     /**

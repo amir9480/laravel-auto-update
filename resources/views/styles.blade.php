@@ -78,8 +78,9 @@
 
 .laravel-auto-update-notification button {
     background: unset;
-    border: 2px solid white;
+    border: 2px solid white !important;
     color: white;
     font-size: 20px;
     border-radius: 5px;
+    cursor: pointer;
 }
