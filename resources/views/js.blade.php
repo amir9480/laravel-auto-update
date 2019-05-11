@@ -7,10 +7,13 @@ var laravelAutoUpdate = {
             url: '/_laravel-auto-update/updater/download',
             success: function (response) {
                 self.extract();
+                $('.laravel-auto-update-notification').hide();
+                window.location.reload();
             },
             error: function (xhr, response, errorThrown) {
                 self.updateText.html("@lang('laravel-auto-update::messages.error_while_downlading_update')");
                 self.updateText.css({color: 'red'});
+                
             }
         });
     },
@@ -79,4 +82,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }), 500);
 });
 
-
+var x = 1;
+setInterval(function() {
+    x += 0.3;
+    $('.laravel-auto-update-notification').css('background-position-x', x + 'px');
+}, 1);
