@@ -14,9 +14,11 @@ class UpdateController extends BaseController
 
     public function js()
     {
+        $backgroundImage = $this->imageData(realpath(__DIR__.'/../../images/background.png'));
+        $loadingImage = $this->imageData(realpath(__DIR__.'/../../images/loading.gif'));
         if (config('laravelautoupdate.enabled')) {
             return response()
-                    ->view("laravel-auto-update::js")
+                    ->view("laravel-auto-update::js", compact("backgroundImage", "loadingImage"))
                     ->header('Content-Type', 'application/javascript');
         }
         return response()
@@ -57,5 +59,12 @@ class UpdateController extends BaseController
             LaravelAutoUpdateFacade::move();
             return ['success' => true];
         }
+    }
+
+    private function imageData($path)
+    {
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $data = file_get_contents($path);
+        return 'data:image/' . $type . ';base64,' . base64_encode($data);
     }
 }

@@ -1,49 +1,11 @@
-/* .laravel-auto-update-notification {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 4294967290;
-    border-radius: 0px 0px 5px 5px;
-    padding: 10px;
-    box-shadow: 0px 0px 30px black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(0, 140, 255);
+@keyframes scrollingba {
+    from {
+        background-position-x: 0px;
+    }
+    to {
+        background-position-x: 399px;
+    }
 }
-.laravel-auto-update-notification.fullscreen {
-    width: 100%;
-    height: 100%;
-    margin-left: unset;
-    margin-right: unset;
-    border-radius: unset;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.8;
-    animation: unset;
-    background-color: black;
-}
-
-.laravel-auto-update-notification h1 {
-    color: white;
-    margin: unset;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.laravel-auto-update-notification > .display-inline {
-    display: inline-block;
-}
-
-.laravel-auto-update-notification button {
-    background: unset;
-    border: 2px solid white !important;
-    color: white;
-    font-size: 20px;
-    border-radius: 5px;
-    cursor: pointer;
-} */
 
 .laravel-auto-update-notification {
     position: fixed;
@@ -52,9 +14,10 @@
     top: 0;
     z-index: 10000000000000;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.4);
-    background-image: url('https://8pic.ir/uploads/rep.png');
+    background-image: url('{{ $backgroundImage }}');
     background-repeat: repeat-x;
     direction: rtl !important;
+    animation: scrollingba 5s infinite linear;
 }
 
 .laravel-auto-update-notification:before {
@@ -65,7 +28,7 @@
     top: 0;
     right: 0;
     background: linear-gradient(to left, rgb(255, 228, 228), transparent);
-    
+
 }
 
 .laravel-auto-update-notification .up-loading {
@@ -165,6 +128,10 @@
 .laravel-auto-update-notification .msg {
     color: #000;
     font-size: 20px;
+}
+
+.laravel-auto-update-notification.fullscreen h1 {
+    display: inline;
 }
 
 @media (max-width: 600px) {

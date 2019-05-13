@@ -6,7 +6,7 @@ return [
      * Route middlewares.
      */
     'middlewares' => [
-        // Recommended to use admin only access middleware
+        'web', // Recommended to use admin only access middleware
     ],
 
     /**

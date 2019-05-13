@@ -7,13 +7,10 @@ var laravelAutoUpdate = {
             url: '/_laravel-auto-update/updater/download',
             success: function (response) {
                 self.extract();
-                $('.laravel-auto-update-notification').hide();
-                window.location.reload();
             },
             error: function (xhr, response, errorThrown) {
                 self.updateText.html("@lang('laravel-auto-update::messages.error_while_downlading_update')");
                 self.updateText.css({color: 'red'});
-                
             }
         });
     },
@@ -49,7 +46,7 @@ var laravelAutoUpdate = {
     }
 };
 
-document.addEventListener("DOMContentLoaded", function() {
+$(document).ready(function() {
     setTimeout(() => $.ajax({
         url: '/_laravel-auto-update/check',
         success: function (response) {
@@ -62,9 +59,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 var closeButton = $(".laravel-auto-update-notification .close-button");
                 var updateButton = $(".laravel-auto-update-notification .update-button");
                 laravelAutoUpdate.updateText = $(".laravel-auto-update-notification h1");
-
-                var pointCounter = 1;
-                setInterval(() => $(".laravel-auto-update-notification b").text(".".repeat(pointCounter = (pointCounter + 1 > 3) ? 1 : pointCounter + 1)), 750);
 
                 layer.slideDown();
                 closeButton.click(function () {
@@ -81,9 +75,3 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }), 500);
 });
-
-var x = 1;
-setInterval(function() {
-    x += 0.3;
-    $('.laravel-auto-update-notification').css('background-position-x', x + 'px');
-}, 1);
