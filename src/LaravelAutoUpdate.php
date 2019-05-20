@@ -134,7 +134,12 @@ class LaravelAutoUpdate
             $envContent = file_get_contents(app()->environmentFilePath());
             $envContent = preg_replace("/APP_VERSION=[^\r\n]+/", 'APP_VERSION='.$this->info()['version'], $envContent);
             file_put_contents(app()->environmentFilePath(), $envContent);
-            $this->runCommands(config('laravelautoupdate.after_update_commands'));
+            $afterUpdateCommands = config('laravelautoupdate.after_update_commands');
+            if (file_exists(config_path("laravelautoupdate.php"))) {
+                $afterUpdateCommands = require config_path("laravelautoupdate.php");
+                $afterUpdateCommands = $afterUpdateCommands['after_update_commands'];
+            }
+            $this->runCommands($afterUpdateCommands);
         }
     }
 }
